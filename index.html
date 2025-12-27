@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتابخانه دبیرستان شهید حسین علیخانی</title>
+    <link rel="stylesheet" href="styles-new.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Toast Container کاستوم -->
+    <div id="toast-container"></div>
+
+    <!-- صفحه انتخاب نقش -->
+    <div id="login-page" class="container">
+        <div class="card">
+            <h1>کتابخانه دبیرستان شهید حسین علیخانی</h1>
+            <p class="subtitle">لطفاً نقش خود را انتخاب کنید</p>
+            
+            <button class="role-btn" onclick="showPasswordModal('vice')">
+                <i class="fas fa-user-shield"></i>
+                ورود به عنوان معاون پرورشی
+            </button>
+            
+            <button class="role-btn" onclick="showPasswordModal('librarian')">
+                <i class="fas fa-book"></i>
+                ورود به عنوان مسئول کتابخانه
+            </button>
+        </div>
+    </div>
+
+    <!-- مودال رمز عبور -->
+    <div id="password-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">ورود به عنوان معاون پرورشی</h2>
+            <div class="password-wrapper">
+                <input type="password" id="password-input" placeholder="رمز عبور را وارد کنید">
+                <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
+            </div>
+            <label class="remember-me">
+                <input type="checkbox" id="remember-me">
+                مرا به خاطر بسپار (۲۰ دقیقه)
+            </label>
+            <div class="modal-buttons">
+                <button onclick="checkPassword()">تأیید</button>
+                <button onclick="closeModal()" class="cancel">انصراف</button>
+            </div>
+            <p id="modal-error" class="error"></p>
+        </div>
+    </div>
+
+    <!-- صفحه اصلی بعد از ورود -->
+    <div id="main-page" class="container hidden">
+        <!-- دکمه خروج جدا – بالا سمت چپ -->
+        <button onclick="logout()" class="logout-btn top-left">
+            <i class="fas fa-sign-out-alt"></i> خروج
+        </button>
+
+        <!-- عنوان وسط بالا -->
+        <header class="page-title">
+            <h1>کتابخانه دبیرستان شهید حسین علیخانی</h1>
+        </header>
+        
+        <!-- محتوای اصلی -->
+        <div id="content" class="content-area"></div>
+
+        <!-- منوی تب‌ها – پایین صفحه، سمت راست، ثابت -->
+        <div class="bottom-nav">
+            <button onclick="showTab('dashboard')" class="nav-btn">
+                <i class="fas fa-home"></i>
+                <span>داشبورد</span>
+            </button>
+            <button onclick="showTab('books')" class="nav-btn">
+                <i class="fas fa-book"></i>
+                <span>کتاب‌ها</span>
+            </button>
+            <button onclick="showTab('students')" class="nav-btn">
+                <i class="fas fa-users"></i>
+                <span>دانش‌آموزان</span>
+            </button>
+            <button onclick="showTab('borrows')" class="nav-btn">
+                <i class="fas fa-exchange-alt"></i>
+                <span>امانت‌ها</span>
+            </button>
+            <div id="vice-only" class="vice-nav">
+                <button onclick="showTab('logs')" class="nav-btn">
+                    <i class="fas fa-history"></i>
+                    <span>لاگ‌ها</span>
+                </button>
+                <button onclick="showTab('stats')" class="nav-btn">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>آمار</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app-new.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                color: { value: "#a78bfa" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                line_linked: { enable: true, distance: 150, color: "#a78bfa", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2 }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" } }
+            }
+        });
+    </script>
+    <!-- کارت پایینی عاشقانه -->
+<div class="footer-credit">
+    این سامانه با عشق توسط <strong>امیرعلی یاوری</strong> برای کتابخانه افسانه‌ای دبیرستان شهید حسین علیخانی طراحی شده است.<br>
+    توقع می‌رود مسئول محترم به صحیح‌ترین نحو ممکن از این برنامه استفاده کند.<br><br>
+    <span class="heart">❤️</span>
+</div>
+</body>
+</html>
